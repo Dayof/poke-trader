@@ -1,0 +1,26 @@
+<div class="card-panel pokemon-detail-card">
+    <div class="row">
+        <div class="col s12 center-align">
+            <img class="responsive-img" src="{{ detail.image_url }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m6 left-align">
+            <span class="label"><strong>Name:</strong></span><br>
+            <span class="label"><strong>Height:</strong></span><br>
+            <span class="label"><strong>Weight:</strong></span><br>
+            <span class="label"><strong>Experience:</strong></span>
+        </div>
+        <div class="col s12 m6 right-align">
+            <span class="value">{{ detail.name }}</span><br>
+            <span class="value">{{ detail.height }}</span><br>
+            <span class="value">{{ detail.weight }}</span><br>
+            <span class="value">{{ detail.base_experience }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 center-align">
+            <a class="waves-effect waves-light btn">ADD</a>
+        </div>
+    </div>
+</div>

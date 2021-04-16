@@ -25,8 +25,7 @@ def start():
 def db_start(start, delete):
     print('Poke trader DB manager started.')
     if start:
-        # collect all pokemon names
-        pokemons = pokemon.get_all()
-        pokemon.save_local(pokemons)
+        # collect all pokemon names and details
+        pokemon.builder()
     elif delete:
         print('Delete not implemented yet.')

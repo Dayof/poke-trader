@@ -1,31 +1,42 @@
-{% extends 'index.html' %}
+{% extends 'trade.html' %}
 
-{% block content %}
+<div class="row">
+    {% block pokedex %} 
+        <div id="pokemon-detail"></div>    
+    {% endblock %}
 
-    <div class="row">
-        {% for pokemon in pokemon_list %}
-            <div class="col s12 m3">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator"
-                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
-                        </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">
-                            {{ pokemon['name']|capitalize }}
-                            <i class="material-icons right">more_vert</i>
-                        </span>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">
-                            {{ pokemon['name']|capitalize }}
-                            <i class="material-icons right">close</i>
-                        </span>
-                        <p>{{ pokemon['name']|capitalize }} is a pokemon of type ...</p>
-                    </div>
+    {% block pokemon_list %}
+
+        <div class="card-panel pokemon-card">
+            {% for pokemon in pokemon_list %}
+                <a id="pokemon" href="{{ url_for('pokemon_api.get_pokemon', poke_id=pokemon.key) }}">
+                    <img class="responsive-img circle"
+                        src="{{ pokemon.image_url }}">
+                </a>
+            {% endfor %}
+        </div>
+
+    {% endblock %}
+
+    {% block trade_window %}
+        <div class="card-panel players-card">
+            <ul id="tabs-players" class="tabs">
+                <li class="tab col s6"><a class="active" href="#player-1">Player 1</a></li>
+                <li class="tab col s6"><a href="#player-2">Player 2</a></li>
+            </ul>
+            <div class='player-card'>
+                <div id="player-1" class="col s12">
+                    <div id="player-1-detail"></div>
+                </div>
+                <div id="player-2" class="col s12">
+                    <div id="player-2-detail"></div>
                 </div>
             </div>
-        {% endfor %}
-    </div>
-
-{% endblock %}
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a class="waves-effect waves-light btn">Trade</a>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</div>

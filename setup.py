@@ -19,7 +19,7 @@ dev = ['pytest', 'pycodestyle', 'coverage', 'ipdb']
 
 db = ['pymongo', 'flask_pymongo', 'flask_mongoengine', 'mongoengine']
 base = ['requests', 'pathlib', 'flask-swagger-ui', 'flask_cors',
-        'click', 'flask', 'jsonschema']
+        'click', 'flask', 'jsonschema', 'tqdm']
 
 setup(
     name="poketrader",
