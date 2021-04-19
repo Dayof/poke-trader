@@ -9,12 +9,13 @@ def start():
     print('Poke trader started.')
 
     port = int(os.environ.get('PORT', 8000))
+    prod = True if os.environ.get('HEROKU') == 'TRUE' else False
     app = create_app()
     app.run(
         host='0.0.0.0',
         port=port,
-        debug=True,
-        use_reloader=True,
+        debug=not prod,
+        use_reloader=not prod,
     )
 
 @click.group(invoke_without_command=True)

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/static/poke.png"
+  <img src="src/static/image/poke.png"
 			width="100px"/>
   <h4 align="center">Poke Trader</h4>
   <p align="center">

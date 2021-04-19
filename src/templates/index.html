@@ -17,11 +17,20 @@
 
     <nav class="navbar">
       <div class="nav-wrapper">
-        <a href="{{ url_for('general_api.home') }}" class="brand-logo">Poke Trader</a>
+        <a href="{{ url_for('general_api.home') }}" class="brand-logo center">
+          Poke Trader
+        </a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
-            <a href="{{ url_for('pokemon_api.get_pokemon_list') }}">
-              <i class="material-icons large">cached</i>
+            <a href="{{ url_for('pokemon_api.get_pokemon_menu') }}">
+              <i class="material-icons left large">cached</i>
+              Trade
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('history_api.get_history_menu') }}">
+              <i class="material-icons left large">history</i>
+              History
             </a>
           </li>
         </ul>

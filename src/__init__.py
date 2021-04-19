@@ -5,7 +5,7 @@
 # Z: bug fixes
 # W: developmental release (build number)
 
-__version__ = '0.0.1'
+__version__ = '1.0.0'
 
 
 from flask_mongoengine import MongoEngine
@@ -17,10 +17,10 @@ db_engine = MongoEngine()
 
 def create_app():
     app = Flask(__name__)
+    mongdb_pwd = os.environ.get('MONGODB_PWD')
+    mongodb = f'mongodb+srv://poketrader:{mongdb_pwd}@cluster0.fk2ly.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
     app.config['MONGODB_SETTINGS'] = {
-        'db': 'poketrader',
-        'host': 'localhost',
-        'port': 27017
+        'host': mongodb
     }
     
     db_engine.init_app(app)
@@ -30,6 +30,9 @@ def create_app():
 
     from src.routers.pokemon import pokemon_api as pokemon_api_blueprint
     app.register_blueprint(pokemon_api_blueprint)
+
+    from src.routers.history import history_api as history_api_blueprint
+    app.register_blueprint(history_api_blueprint)
 
     CORS(app)
 

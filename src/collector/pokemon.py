@@ -1,18 +1,26 @@
-from src.models import PokemonSchema
+
 
 import mongoengine as me
 from tqdm import tqdm
 import requests
+import os
 
 BASE_URL = 'https://pokeapi.co/api/v2/pokemon/'
 
+def connect_mongodb():
+    pwd = os.environ.get('MONGODB_PWD')
+    mongodb = f'mongodb+srv://bxblue:{pwd}@cluster0.fk2ly.mongodb.net/poketrader?retryWrites=true&w=majority' 
+    me.connect(host=mongodb)
+    print(f'connected to {mongodb}')
 
 def save_local(pokemon_details):
-    me.connect(host='mongodb://127.0.0.1:27017/poketrader')
     pokemons_instances = [PokemonSchema(**data) for data in pokemon_details]
     PokemonSchema.objects.insert(pokemons_instances, load_bulk=False)
 
 def builder():
+    print('Connecting to mongodb...')
+    connect_mongodb()
+    print(f'Collecting data from {BASE_URL}.')
     pokemon_names = get_all_names()  # ['name', 'url']
     pokemon_details = get_all_details(pokemon_names)
     save_local(pokemon_details)

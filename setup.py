@@ -14,12 +14,11 @@ with io.open('./src/__init__.py', encoding='utf8') as version_file:
 with io.open('README.md', encoding='utf8') as readme:
     long_description = readme.read()
 
-prod = ['Gunicorn']
+prod = ['gunicorn']
 dev = ['pytest', 'pycodestyle', 'coverage', 'ipdb']
 
 db = ['pymongo', 'flask_pymongo', 'flask_mongoengine', 'mongoengine']
-base = ['requests', 'pathlib', 'flask-swagger-ui', 'flask_cors',
-        'click', 'flask', 'jsonschema', 'tqdm']
+base = ['requests', 'pathlib', 'flask_cors', 'click', 'flask',  'tqdm']
 
 setup(
     name="poketrader",
