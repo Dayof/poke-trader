@@ -5,7 +5,7 @@
 # Z: bug fixes
 # W: developmental release (build number)
 
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 
 from flask_mongoengine import MongoEngine
