@@ -18,7 +18,7 @@ db_engine = MongoEngine()
 def create_app():
     app = Flask(__name__)
     mongdb_pwd = os.environ.get('MONGODB_PWD')
-    mongodb = f'mongodb+srv://poketrader:{mongdb_pwd}@cluster0.fk2ly.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    mongodb = f'mongodb+srv://bxblue:{pwd}@cluster0.fk2ly.mongodb.net/poketrader?retryWrites=true&w=majority' 
     app.config['MONGODB_SETTINGS'] = {
         'host': mongodb
     }
