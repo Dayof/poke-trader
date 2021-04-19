@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col s6">
+            <div class="card-panel">
+                <div class="card-content red-text">
+                    <span class="card-title">Player 1</span>
+                </div>
+            </div>
+        </div>
+        <div class="col s6">
+            <div class="card-panel">
+                <div class="card-content red-text">
+                    <span class="card-title">Player 2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for players_lists in detail %}
+            <div class="col s6">
+                <div class="card-panel pokemon-history-card">
+                    {% for pokemon in players_lists.player_1 %}
+                        <img class="responsive-img circle"
+                            src="{{ pokemon.image_url }}">
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col s6">
+                <div class="card-panel pokemon-history-card">
+                    {% for pokemon in players_lists.player_2 %}
+                        <img class="responsive-img circle"
+                            src="{{ pokemon.image_url }}">
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+
+{% endblock %}

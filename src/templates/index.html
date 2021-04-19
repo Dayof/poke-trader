@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Poke Trader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="nav-wrapper">
+        <a href="{{ url_for('general_api.home') }}" class="brand-logo center">
+          Poke Trader
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="{{ url_for('pokemon_api.get_pokemon_menu') }}">
+              <i class="material-icons left large">cached</i>
+              Trade
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('history_api.get_history_menu') }}">
+              <i class="material-icons left large">history</i>
+              History
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+
+    <script type="text/javascript"
+            src="{{ url_for('static', filename='js/jquery.min.js') }}">
+    </script>
+
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+    </script>
+  
+    <script type="text/javascript"
+            src="{{ url_for('static', filename='js/local.js') }}"></script>
+  </body>
+</html>

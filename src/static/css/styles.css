@@ -1,0 +1,42 @@
+div.card-panel.pokemon-detail-card {
+   width: 100%;
+   height: 330px;
+}
+
+div.card-panel.players-card {
+   width: 100%;
+   height: 400px;
+}
+
+div.card-panel.players-card > .player-card {
+   width: 100%;
+   height: 250px;
+}
+
+div.card-panel.pokemon-card {
+   width: 100%;
+   height: 500px;
+   overflow-y: scroll;
+}
+
+div.card-panel.pokemon-history-card {
+   width: 100%;
+   height: 150px;
+   overflow-y: scroll;
+}
+
+.col.s12 > .btn {
+   width: 100%;
+}
+
+.container {
+   width: 100%;
+}
+
+nav.navbar {
+   padding: 0 30px;
+}
+
+.pokemon-remove {
+   cursor: pointer;
+}
