@@ -11,14 +11,15 @@ __version__ = '1.0.0'
 from flask_mongoengine import MongoEngine
 from flask_cors import CORS
 from flask import Flask
+import os
 
 
 db_engine = MongoEngine()
 
 def create_app():
     app = Flask(__name__)
-    mongdb_pwd = os.environ.get('MONGODB_PWD')
-    mongodb = f'mongodb+srv://bxblue:{pwd}@cluster0.fk2ly.mongodb.net/poketrader?retryWrites=true&w=majority' 
+    mongodb_pwd = os.environ.get('MONGODB_PWD')
+    mongodb = f'mongodb+srv://bxblue:{mongodb_pwd}@cluster0.fk2ly.mongodb.net/poketrader?retryWrites=true&w=majority' 
     app.config['MONGODB_SETTINGS'] = {
         'host': mongodb
     }
