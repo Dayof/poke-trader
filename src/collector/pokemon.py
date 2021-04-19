@@ -1,4 +1,4 @@
-
+from src.models import PokemonSchema
 
 import mongoengine as me
 from tqdm import tqdm
