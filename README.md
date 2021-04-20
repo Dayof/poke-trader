@@ -8,23 +8,11 @@
 </p>
 
 Poke Trader
+===========
+
+This project was built to enable pokemon's trade between two players. You can try this tool here [Poke Trader](https://bxb-poke-trader.herokuapp.com/). All data were from [Poke API](​https://pokeapi.co/docs/v2).
+
+Contributing
 ------------
 
-Este projeto consiste em uma calculadora de trocas de pokemon.
-É possível utilizar esta ferramenta tanto por APIs ou via UI.
-
-Todos os dados dos pokemons foram coletados através do serviço ​https://pokeapi.co/docs/v2.
-
-## Requisitos do sistema
-
-- Python 3.7+
-- MongoDB 3.6.8+
-
-## Uso do sistema
-
-```
-python3 -m venv venv
-. venv/bin/activate
-pip install -U pip
-pip install -e .[dev]
-```
+You can <b>contribute</b> to Poke Trader, check the [Contributing Guide](CONTRIBUTING.md).
