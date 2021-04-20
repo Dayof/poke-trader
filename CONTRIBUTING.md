@@ -81,8 +81,8 @@ This project has both unit and integration tests. They have same setup but a dif
 Code Coverage
 -------------
 
-```
-pytest -vv tests/integration tests/unit --cov=src --cov-report xml:coverage-reports/pytest-coverage-report-int.xml --junitxml=xunit-reports/xunit-result-pytest-int.xml --cov-report=html
+```bash
+pytest -vv tests/integration tests/unit --cov=src --cov=src/collector --cov=src/routers --cov=src/service --cov-report xml:coverage-reports/pytest-coverage-report-int.xml --junitxml=xunit-reports/xunit-result-pytest-int.xml --cov-report=html
 ```
 
 Code Style
@@ -119,7 +119,7 @@ To automate import sorting and check for PEP8 problems:
 ```bash
 isort --atomic --skip venv .  # recursively modify files conform import sorting guidelines, skipping virtual environment folder
 pycodestyle . # check for pep8 standards
-bandit . -r -x venv  # test python security analysis
+bandit -r src  # test python security analysis
 ```
 
 `[OPTIONAL]` Install a [pre-commit hook](https://raw.githubusercontent.com/cbrueffer/pep8-git-hook/master/pre-commit) to check pep8 errors before every commit. The hook can be overridden: `git commit --no-verify`.

@@ -17,19 +17,22 @@ from flask_mongoengine import MongoEngine
 db_engine = MongoEngine()
 
 
-def create_app():
-    """Flask server thread.
+def create_app(mode='app'):
+    """Create Flask app.
 
-    This class implements HTTP protocol listeners to UIoT gateway.
-    Flask server details: host 0.0.0.0 and port 8000.
+    This function starts Flask, with its routers, and MongoDB host settings.
 
-    Args:
+    Returns:
         app (:obj:`Flask`) Flask object reference.
     """
     app = Flask(__name__)
-    mongodb_pwd = os.environ.get('MONGODB_PWD')
-    mongodb = f'mongodb+srv://bxblue:{mongodb_pwd}@cluster0.fk2ly' \
-              '.mongodb.net/poketrader?retryWrites=true&w=majority'
+    if mode == 'app':
+        mongodb_pwd = os.environ.get('MONGODB_PWD')
+        mongodb = f'mongodb+srv://bxblue:{mongodb_pwd}@cluster0.fk2ly' \
+                '.mongodb.net/poketrader?retryWrites=true&w=majority'
+    else:
+        mongodb = 'mongodb://localhost:27017'
+
     app.config['MONGODB_SETTINGS'] = {
         'host': mongodb
     }

@@ -16,7 +16,8 @@ with io.open('README.md', encoding='utf8') as readme:
     long_description = readme.read()
 
 prod = []
-dev = ['pytest', 'pycodestyle', 'coverage', 'isort' 'ipdb']
+dev = ['pytest', 'pytest-cov', 'pycodestyle', 'coverage',
+       'isort', 'ipdb', 'bandit']
 
 db = ['pymongo', 'flask_pymongo', 'flask_mongoengine', 'mongoengine']
 base = ['requests', 'pathlib', 'flask_cors', 'click', 'flask', 'tqdm']
