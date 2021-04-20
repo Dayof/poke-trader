@@ -33,7 +33,7 @@ def calc_base_experience(total_p1, total_p2):
             'player_1': total_p1, 'player_2': total_p2}
 
 
-def save_trade(base_exps):
+def save_trade(list_player_1, list_player_2, base_exps):
     if is_trade_fair(base_exps['diff_points']):
         TradeSchema(pokemons_p1=list_player_1, pokemons_p2=list_player_2).save()
         return {**base_exps, 'status': 200}

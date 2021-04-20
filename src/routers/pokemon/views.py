@@ -22,8 +22,9 @@ def get_pokemon(poke_id):
 @pokemon_api.route('/trade', methods=['POST'])
 def trade_pokemon():
     body = request.json['data']
-    base_exps = calculator.manager_calc_base_exp(body[0], body[1])
-    result = calculator.save_trade(base_exps)
+    p1, p2 = body[0], body[1]
+    base_exps = calculator.manager_calc_base_exp(p1, p2)
+    result = calculator.save_trade(p1, p2, base_exps)
     if result['status'] == 200:
         msg = {'msg': 'Successful trade!', **result}
     else:
