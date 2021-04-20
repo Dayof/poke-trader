@@ -1,5 +1,6 @@
 from src.models import PokemonSchema
 
+
 def build_players_lists(players_lists):
     new_players_lists = []
     pokemons = {}

@@ -1,7 +1,8 @@
-from flask import render_template, jsonify, request
+from flask import jsonify, render_template, request
 
-from src.service import calculator
 from src.models import PokemonSchema
+from src.service import calculator
+
 from . import pokemon_api
 
 
@@ -10,11 +11,13 @@ def get_pokemon_menu():
     pokemons = PokemonSchema.objects()[:200]
     return render_template('pokemon.html', pokemon_list=pokemons)
 
+
 @pokemon_api.route('/pokemon/<poke_id>', methods=['GET'])
 def get_pokemon(poke_id):
     pokemon = PokemonSchema.objects(key=poke_id).first()
     return jsonify({'results': render_template('pokedex.html',
                    detail=pokemon)})
+
 
 @pokemon_api.route('/trade', methods=['POST'])
 def trade_pokemon():

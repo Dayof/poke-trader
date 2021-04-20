@@ -8,22 +8,32 @@
 __version__ = '1.2.0'
 
 
-from flask_mongoengine import MongoEngine
-from flask_cors import CORS
-from flask import Flask
 import os
 
+from flask import Flask
+from flask_cors import CORS
+from flask_mongoengine import MongoEngine
 
 db_engine = MongoEngine()
 
+
 def create_app():
+    """Flask server thread.
+
+    This class implements HTTP protocol listeners to UIoT gateway.
+    Flask server details: host 0.0.0.0 and port 8000.
+
+    Args:
+        app (:obj:`Flask`) Flask object reference.
+    """
     app = Flask(__name__)
     mongodb_pwd = os.environ.get('MONGODB_PWD')
-    mongodb = f'mongodb+srv://bxblue:{mongodb_pwd}@cluster0.fk2ly.mongodb.net/poketrader?retryWrites=true&w=majority' 
+    mongodb = f'mongodb+srv://bxblue:{mongodb_pwd}@cluster0.fk2ly' \
+              '.mongodb.net/poketrader?retryWrites=true&w=majority'
     app.config['MONGODB_SETTINGS'] = {
         'host': mongodb
     }
-    
+
     db_engine.init_app(app)
 
     from src.routers.general import general_api as general_api_blueprint
