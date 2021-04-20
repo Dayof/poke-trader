@@ -2,20 +2,22 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col s12 m4 l3">
-            {% block pokedex %}
-            {% endblock %}
-        </div>
-        
-        <div class="col s12 m4 l5">
-            {% block pokemon_list %}
-            {% endblock %}
-        </div>
-        
-        <div class="col s12 m4 l4">
-            {% block trade_window %}
-            {% endblock %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m4 l3">
+                {% block pokedex %}
+                {% endblock %}
+            </div>
+            
+            <div class="col s12 m4 l5">
+                {% block pokemon_list %}
+                {% endblock %}
+            </div>
+            
+            <div class="col s12 m4 l4">
+                {% block trade_window %}
+                {% endblock %}
+            </div>
         </div>
     </div>
 

@@ -1,6 +1,7 @@
-from setuptools import setup, find_packages
 import io
 import re
+
+from setuptools import find_packages, setup
 
 with io.open('./src/__init__.py', encoding='utf8') as version_file:
     version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
@@ -14,11 +15,12 @@ with io.open('./src/__init__.py', encoding='utf8') as version_file:
 with io.open('README.md', encoding='utf8') as readme:
     long_description = readme.read()
 
-prod = ['gunicorn']
-dev = ['pytest', 'pycodestyle', 'coverage', 'ipdb']
+prod = []
+dev = ['pytest', 'pytest-cov', 'pycodestyle', 'coverage',
+       'isort', 'ipdb', 'bandit']
 
 db = ['pymongo', 'flask_pymongo', 'flask_mongoengine', 'mongoengine']
-base = ['requests', 'pathlib', 'flask_cors', 'click', 'flask',  'tqdm']
+base = ['requests', 'pathlib', 'flask_cors', 'click', 'flask', 'tqdm']
 
 setup(
     name="poketrader",

@@ -1,7 +1,8 @@
-from flask import render_template, jsonify, request
+from flask import jsonify, render_template, request
 
-from src.service import calculator
 from src.models import PokemonSchema
+from src.service import calculator
+
 from . import pokemon_api
 
 
@@ -10,16 +11,20 @@ def get_pokemon_menu():
     pokemons = PokemonSchema.objects()[:200]
     return render_template('pokemon.html', pokemon_list=pokemons)
 
+
 @pokemon_api.route('/pokemon/<poke_id>', methods=['GET'])
 def get_pokemon(poke_id):
     pokemon = PokemonSchema.objects(key=poke_id).first()
     return jsonify({'results': render_template('pokedex.html',
                    detail=pokemon)})
 
+
 @pokemon_api.route('/trade', methods=['POST'])
 def trade_pokemon():
     body = request.json['data']
-    result = calculator.save_trade(body[0], body[1])
+    p1, p2 = body[0], body[1]
+    base_exps = calculator.manager_calc_base_exp(p1, p2)
+    result = calculator.save_trade(p1, p2, base_exps)
     if result['status'] == 200:
         msg = {'msg': 'Successful trade!', **result}
     else:

@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Poke Trader</title>
+    <link rel="icon" type="image/png"
+          href="{{ url_for('static', filename='image/poke.png') }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
     <link rel="stylesheet"
@@ -37,9 +39,27 @@
       </div>
     </nav>
 
-    <div class="container">
-      {% block content %}{% endblock %}
-    </div>
+    {% block content %}
+      <div class="parallax-container">
+        <div class="parallax">
+          <img src="{{ url_for('static', filename='image/pokemon_wall.jpg') }}"></div>
+      </div>
+      <div class="container">
+        <div class="section">
+            <h2 class="header">Trade Steps</h2>
+            <p class="grey-text text-darken-3 lighten-3">
+              <div class="row center">
+                <div class="col s12">
+                  <img src="{{ url_for('static', filename='image/poke_trader.png') }}">
+                </div>
+              </div>
+            </p>
+        </div>
+      </div>
+      <div class="parallax-container">
+        <div class="parallax"><img src="https://swordshield.pokemon.com/assets/img/articles/camp_art_2x.jpg"></div>
+      </div>
+    {% endblock %}
 
     <script type="text/javascript"
             src="{{ url_for('static', filename='js/jquery.min.js') }}">

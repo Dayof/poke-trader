@@ -1,7 +1,8 @@
-from flask import render_template, jsonify
+from flask import jsonify, render_template
 
-from src.service import hist_builder
 from src.models import TradeSchema
+from src.service import hist_builder
+
 from . import history_api
 
 

@@ -5,6 +5,7 @@ player_2_pokemons = [];
 
 $('.tabs').tabs();
 $('#modal1').modal();
+$('.parallax').parallax();
 
 $('a#pokemon').bind('click', function() {
   var url = this.attributes.href.value
